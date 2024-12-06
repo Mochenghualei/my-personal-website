@@ -56,7 +56,7 @@ const currentYear = new Date().getFullYear()
 
     <section class="section">
       <h2 id="text">
-        <span>欢迎来到我的站点</span><br><span>前端森林</span>
+        <span>前端资源一站式导航</span><br><span>前端森林</span>
       </h2>
       <img id="bird1" src="/images/bird1.png">
       <img id="bird2" src="/images/bird2.png">
@@ -68,6 +68,7 @@ const currentYear = new Date().getFullYear()
 
     <main class="main_container">
       <BaseSearchEngine />
+      <!-- tabs -->
       <cardList title="框架与生态" :tab-list="list1" />
       <cardList title="打包/构建工具" :tab-list="list2" />
       <cardList title="css框架/组件库" :tab-list="list3" />

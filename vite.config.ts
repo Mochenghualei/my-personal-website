@@ -10,6 +10,7 @@ import Icons from 'unplugin-icons/vite'
 import { ElementPlusResolver, VueUseComponentsResolver } from 'unplugin-vue-components/resolvers'
 import Components from 'unplugin-vue-components/vite'
 import { defineConfig, loadEnv } from 'vite'
+import vueDevTools from 'vite-plugin-vue-devtools'
 import svgLoader from 'vite-svg-loader'
 
 // https://vitejs.dev/config/
@@ -21,6 +22,7 @@ export default defineConfig(({ mode }) => {
       vue(),
       vueJsx(),
       svgLoader(),
+      vueDevTools(),
       legacy({
         targets: ['defaults', 'not IE 11'],
       }),
@@ -74,6 +76,7 @@ export default defineConfig(({ mode }) => {
     css: {
       preprocessorOptions: {
         scss: {
+          api: 'modern-compiler',
           additionalData: `@import "~/styles/variables.scss";`,
           javascriptEnabled: true,
         },
