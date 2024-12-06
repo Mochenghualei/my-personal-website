@@ -1,4 +1,5 @@
 import * as ELIcon from '@element-plus/icons-vue'
+import APlayer from 'aplayer/dist/APlayer.min.js'
 import { createApp } from 'vue'
 import router from '~/router'
 import store from '~/store'
@@ -13,6 +14,7 @@ function isValidKey(key: string | number | symbol, object: object): key is keyof
 // init()
 
 const app = createApp(App)
+app.config.globalProperties.$aplayer = APlayer
 // 全局注册elementplus图标组件
 for (const iconName in ELIcon) {
   if (isValidKey(iconName, ELIcon)) {

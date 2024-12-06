@@ -1,3 +1,3 @@
 type anyKey = Record<string, any>
 
-declare module 'APlayer';
+declare module 'aplayer/dist/APlayer.min.js';

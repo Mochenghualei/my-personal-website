@@ -1,7 +1,4 @@
 <script setup lang="ts">
-import APlayer from '/aPlayer'
-
-
 import config from '~/config'
 import useNavFixed from '../hooks/useNavFixed'
 import useParallaxRolling from '../hooks/useParallaxRolling'
@@ -25,7 +22,9 @@ function handlerScroll() {
 
 // 播放器
 onMounted(() => {
-  (window as any).ap = new APlayer({
+  const instance = getCurrentInstance() as any
+  const APlayer = instance.appContext.config.globalProperties.$aplayer
+  ;(window as any).ap = new APlayer({
     container: document.getElementById('player'),
     fixed: true,
     lrcType: 3,
