@@ -44,6 +44,6 @@ jobs:
           port: 22
           script: |
             cd /www/wwwroot/frontend-forest/
-            rm -rf ./*
+            rm -rf *
             tar -xzf dist.tar.gz
             rm dist.tar.gz
