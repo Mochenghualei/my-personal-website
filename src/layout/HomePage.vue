@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import APlayer from 'APlayer'
+import APlayer from '/aPlayer'
+
+
 import config from '~/config'
 import useNavFixed from '../hooks/useNavFixed'
 import useParallaxRolling from '../hooks/useParallaxRolling'
