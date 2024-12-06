@@ -18,6 +18,7 @@ export default defineConfig(({ mode }) => {
   // 获取环境变量
   const env = loadEnv(mode, process.cwd())
   return defineConfig({
+    root: '/',
     plugins: [
       vue(),
       vueJsx(),
