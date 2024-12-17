@@ -2,7 +2,6 @@ import * as ELIcon from '@element-plus/icons-vue'
 import APlayer from 'aplayer/dist/APlayer.min.js'
 import { createApp } from 'vue'
 import router from '~/router'
-import store from '~/store'
 import App from './App.vue'
 import '~/styles/index.scss'
 import 'aplayer/dist/APlayer.min.css'
@@ -10,8 +9,6 @@ import 'aplayer/dist/APlayer.min.css'
 function isValidKey(key: string | number | symbol, object: object): key is keyof typeof object {
   return key in object
 }
-
-// init()
 
 const app = createApp(App)
 app.config.globalProperties.$aplayer = APlayer
@@ -22,4 +19,4 @@ for (const iconName in ELIcon) {
   }
 }
 
-app.use(router).use(store).mount('#app')
+app.use(router).mount('#app')

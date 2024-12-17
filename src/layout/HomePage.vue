@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import axios from 'axios'
 import config from '~/config'
 import useNavFixed from '../hooks/useNavFixed'
 import useParallaxRolling from '../hooks/useParallaxRolling'
@@ -6,10 +7,34 @@ import useParallaxRolling from '../hooks/useParallaxRolling'
 // 播放器
 const cardList = defineAsyncComponent(() => import('./CardList.vue'))
 const BaseSearchEngine = defineAsyncComponent(() => import('~/components/BaseSearchEngine.vue'))
-const { nav: navEl, navActive, navList, handleClickNav } = useNavFixed()
+const { nav: navEl, navActive, navList, handleClickNav } = useNavFixed() as anyKey
 const { onMounted } = useParallaxRolling()
 
-const { list1, list2, list3 } = config().menuList
+const list = config().menuList
+
+onMounted(async () => {
+  await getIcon()
+})
+
+async function getIcon() {
+  for (const key in list) {
+    const item = list[key]
+    item.data.forEach(async (data: anyKey) => {
+      const res = await axios.get(data.url)
+      data.iconUrl = ''
+      const reg = /<link[^>]*\srel="icon"[^>]*\shref="([^"]+)"/
+      if (res && res.data) {
+        const match = res.data.match(reg)
+        if (match) {
+          const faviconPath = match[1]
+          data.iconUrl = data.url + faviconPath
+        }
+      }
+    })
+  }
+}
+
+// 获取站点icon
 
 function handlerScroll() {
   const main = document.querySelector('.main_container') as HTMLElement
@@ -70,9 +95,7 @@ const currentYear = new Date().getFullYear()
     <main class="main_container">
       <BaseSearchEngine />
       <!-- tabs -->
-      <cardList title="框架与生态" :tab-list="list1" />
-      <cardList title="打包/构建工具" :tab-list="list2" />
-      <cardList title="css框架/组件库" :tab-list="list3" />
+      <cardList v-for="({ title = '', data = [] }, idx) in list" :key="idx" :title="title" :tab-list="data" />
     </main>
 
     <!-- 页脚 -->

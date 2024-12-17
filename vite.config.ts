@@ -1,6 +1,5 @@
 import path from 'node:path'
 import process from 'node:process'
-import legacy from '@vitejs/plugin-legacy'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import AutoImport from 'unplugin-auto-import/vite'
@@ -18,15 +17,11 @@ export default defineConfig(({ mode }) => {
   // 获取环境变量
   const env = loadEnv(mode, process.cwd())
   return defineConfig({
-    root: './',
     plugins: [
       vue(),
       vueJsx(),
       svgLoader(),
       vueDevTools(),
-      legacy({
-        targets: ['defaults', 'not IE 11'],
-      }),
       ElementPlus({
         // useSource: true
       }),
@@ -68,7 +63,6 @@ export default defineConfig(({ mode }) => {
     },
     // build配置
     build: {
-      outDir: 'dist',
       reportCompressedSize: false,
       // 消除打包大小超过500kb警告
       chunkSizeWarningLimit: 2000,
@@ -78,8 +72,7 @@ export default defineConfig(({ mode }) => {
       preprocessorOptions: {
         scss: {
           api: 'modern-compiler',
-          additionalData: `@import "~/styles/variables.scss";`,
-          javascriptEnabled: true,
+          additionalData: '@use "~/styles/variables.scss" as *;',
         },
       },
       postcss: {

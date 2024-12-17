@@ -1,6 +1,4 @@
 <script setup lang="ts">
-defineProps(['title', 'tabList'])
-
 interface TagTypes {
   js: 'warning'
   css: 'danger'
@@ -8,12 +6,21 @@ interface TagTypes {
   react: 'primary'
 }
 
+const props = defineProps(['title', 'tabList'])
+
 const tagTypes: TagTypes = {
   js: 'warning',
   css: 'danger',
   vue: 'success',
   react: 'primary',
 }
+
+const data = ref<any[]>([])
+
+watch(() => props.tabList, (val) => {
+  data.value = val
+  console.log('val :>>> ', val)
+}, { immediate: true })
 
 function handleTagColor(tag: string[]) {
   const keys = Object.keys(tagTypes)
@@ -46,12 +53,12 @@ function imgerror(event: anyKey) {
       {{ title }}
     </div>
     <el-row :gutter="15">
-      <el-col v-for="tab in tabList" :key="tab.id" :span="6">
+      <el-col v-for="tab in data" :key="tab.id" :span="6">
         <el-card shadow="hover" :body-style="{ padding: 0 }" @click="handleRedirect(tab.url)">
           <div class="card_main">
             <div class="card_l">
               <div class="logo">
-                <img :src="`https://api.iowen.cn/favicon/${tab.img}`" :onerror="(e:anyKey) => imgerror(e)">
+                <img :src="tab.iconUrl" :onerror="(e:anyKey) => imgerror(e)">
               </div>
             </div>
             <div class="card_m">
