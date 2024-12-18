@@ -12,29 +12,20 @@ const { onMounted } = useParallaxRolling()
 
 const list = config().menuList
 
-onMounted(async () => {
-  await getIcon()
-})
-
+onMounted(async () => getIcon())
 async function getIcon() {
   for (const key in list) {
     const item = list[key]
     item.data.forEach(async (data: anyKey) => {
-      const res = await axios.get(data.url)
       data.iconUrl = ''
-      const reg = /<link[^>]*\srel="icon"[^>]*\shref="([^"]+)"/
+      const baseURL = import.meta.env.VITE_APP_BASE_API
+      const res = await axios.get(`${baseURL}/getIcon?url=${data.url}`)
       if (res && res.data) {
-        const match = res.data.match(reg)
-        if (match) {
-          const faviconPath = match[1]
-          data.iconUrl = data.url + faviconPath
-        }
+        data.iconUrl = data.url + (res.data.data || '')
       }
     })
   }
 }
-
-// 获取站点icon
 
 function handlerScroll() {
   const main = document.querySelector('.main_container') as HTMLElement
@@ -106,5 +97,5 @@ const currentYear = new Date().getFullYear()
 </template>
 
 <style scoped lang="scss">
-@import '@/styles/homepage.scss';
+@use '@/styles/homepage.scss';
 </style>

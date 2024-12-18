@@ -19,7 +19,6 @@ const data = ref<any[]>([])
 
 watch(() => props.tabList, (val) => {
   data.value = val
-  console.log('val :>>> ', val)
 }, { immediate: true })
 
 function handleTagColor(tag: string[]) {
@@ -44,6 +43,13 @@ function imgerror(event: anyKey) {
   img.onerror = null
   img.classList.add('err')
 }
+
+function onCardMouseFocus(item: anyKey) {
+  item.showConfig = true
+}
+function onCardMouseLeave(item: anyKey) {
+  item.showConfig = false
+}
 </script>
 
 <template>
@@ -54,7 +60,7 @@ function imgerror(event: anyKey) {
     </div>
     <el-row :gutter="15">
       <el-col v-for="tab in data" :key="tab.id" :span="6">
-        <el-card shadow="hover" :body-style="{ padding: 0 }" @click="handleRedirect(tab.url)">
+        <el-card shadow="hover" :body-style="{ padding: 0 }" @click="handleRedirect(tab.url)" @mouseenter="onCardMouseFocus(tab)" @mouseleave="onCardMouseLeave(tab)">
           <div class="card_main">
             <div class="card_l">
               <div class="logo">
@@ -89,6 +95,9 @@ function imgerror(event: anyKey) {
               </el-icon>
             </div>
           </div>
+          <div class="switch_box" :class="[tab.showConfig ? 'active' : 'disabled']">
+            switchbox
+          </div>
         </el-card>
       </el-col>
     </el-row>
@@ -97,4 +106,15 @@ function imgerror(event: anyKey) {
 
 <style lang="scss" scoped>
 @import '@/styles/homepage.scss';
+
+.switch_box {
+  position: fixed;
+  // position: absolute;
+  // top: 0;
+  // right: 0;
+  height: 100%;
+  width: 50%;
+  z-index: 1;
+  background: #000;
+}
 </style>

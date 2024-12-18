@@ -15,6 +15,7 @@ interface MenuItem {
   title: string
   tags: string[]
   content?: string
+  showConfig?: boolean
 }
 
 export interface MenuList { [key: string]: { title: string, data: MenuItem[] } }
@@ -68,15 +69,16 @@ export default () => {
       data: [
         {
           id: nanoid(),
-          url: 'https://cn.vuejs.org/',
+          url: 'https://vuejs.org/',
           img: 'cn.vuejs.org.png',
           title: 'Vue.js',
           tags: ['vue', 'js', '框架'],
           content: '渐进式 JavaScript 框架,易学易用，性能出色，适用场景丰富的 Web 前端框架',
+          showConfig: false,
         },
         {
           id: nanoid(),
-          url: 'https://vuex.vuejs.org/zh/',
+          url: 'https://vuex.vuejs.org/',
           img: 'cn.vuejs.org.png',
           title: 'Vuex',
           tags: ['vue', '库'],
@@ -84,7 +86,7 @@ export default () => {
         },
         {
           id: nanoid(),
-          url: 'https://router.vuejs.org/zh/',
+          url: 'https://router.vuejs.org/',
           img: 'cn.vuejs.org.png',
           title: 'Vue Router',
           tags: ['vue', '库'],
@@ -92,15 +94,7 @@ export default () => {
         },
         {
           id: nanoid(),
-          url: 'https://cli.vuejs.org/zh/',
-          img: 'cn.vuejs.org.png',
-          title: 'Vue Cli',
-          tags: ['vue', '库'],
-          content: 'Vue.js 开发的标准工具',
-        },
-        {
-          id: nanoid(),
-          url: 'https://pinia.web3doc.top/',
+          url: 'https://pinia.vuejs.org/',
           img: 'pinia.web3doc.top.png',
           title: 'Pinia',
           tags: ['vue', '库'],
@@ -108,7 +102,7 @@ export default () => {
         },
         {
           id: nanoid(),
-          url: 'https://react.docschina.org/',
+          url: 'https://react.dev/',
           img: 'react.docschina.org.png',
           title: 'React',
           tags: ['react', 'js', '框架'],
@@ -116,7 +110,7 @@ export default () => {
         },
         {
           id: nanoid(),
-          url: 'https://reactrouter.com/en/main',
+          url: 'https://reactrouter.com/',
           img: 'reactrouter.com/en/main.png',
           title: 'React Router',
           tags: ['react', '库'],
@@ -124,7 +118,7 @@ export default () => {
         },
         {
           id: nanoid(),
-          url: 'https://cn.redux.js.org/',
+          url: 'https://redux.js.org/',
           img: 'cn.redux.js.org.png',
           title: 'Redux',
           tags: ['redux', '库'],
@@ -132,7 +126,7 @@ export default () => {
         },
         {
           id: nanoid(),
-          url: 'https://reactnative.cn/',
+          url: 'https://reactnative.dev/',
           img: 'reactnative.cn.png',
           title: 'React Native',
           tags: ['react native', 'js', '框架'],
@@ -140,7 +134,7 @@ export default () => {
         },
         {
           id: nanoid(),
-          url: 'https://www.nuxtjs.cn/',
+          url: 'https://nuxt.com/',
           img: 'www.nuxtjs.cn.png',
           title: 'NuxtJS',
           tags: ['nuxtjs', 'vue', '框架'],
@@ -148,7 +142,7 @@ export default () => {
         },
         {
           id: nanoid(),
-          url: 'https://www.nextjs.cn/',
+          url: 'https://nextjs.org/',
           img: 'www.nextjs.cn.png',
           title: 'Next.js',
           tags: ['nextjs', 'react', '框架'],
@@ -164,7 +158,7 @@ export default () => {
         },
         {
           id: nanoid(),
-          url: 'https://www.sveltejs.cn/',
+          url: 'https://svelte.dev/',
           img: 'www.sveltejs.cn.png',
           title: 'Svelte.js',
           tags: ['sveltejs', 'js', '框架'],
@@ -172,7 +166,7 @@ export default () => {
         },
         {
           id: nanoid(),
-          url: 'https://flutter.cn/',
+          url: 'https://flutter.dev/',
           img: 'flutter.cn.png',
           title: 'Flutter',
           tags: ['flutter', '框架'],
@@ -180,7 +174,7 @@ export default () => {
         },
         {
           id: nanoid(),
-          url: 'https://www.alpinejs.cn/',
+          url: 'https://alpinejs.dev/',
           img: 'www.alpinejs.cn.png',
           title: 'Alpine.js',
           tags: ['alpinejs', 'js', '框架'],
@@ -189,7 +183,7 @@ export default () => {
 
         {
           id: nanoid(),
-          url: 'https://angular.cn/',
+          url: 'https://angular.dev/',
           img: 'angular.cn.png',
           title: 'Angular.js',
           tags: ['amgular', 'js', '框架'],
@@ -197,7 +191,7 @@ export default () => {
         },
         {
           id: nanoid(),
-          url: 'https://www.preactjs.com.cn/',
+          url: 'https://preactjs.com/',
           img: 'www.preactjs.com.cn.png',
           title: 'Preact.js',
           tags: ['preact', 'js', '框架'],
@@ -205,7 +199,7 @@ export default () => {
         },
         {
           id: nanoid(),
-          url: 'https://uniapp.dcloud.net.cn/',
+          url: 'https://zh.uniapp.dcloud.io/',
           img: 'uniapp.dcloud.net.cn.png',
           title: 'uni-app',
           tags: ['uni-app', '框架'],
@@ -222,21 +216,20 @@ export default () => {
         },
         {
           id: nanoid(),
-          url: 'https://alitajs.com/zh-CN',
+          url: 'https://alitajs.com/',
           img: 'alitajs.com/zh-CN.png',
           title: 'Alita',
           tags: ['react', 'alita', '框架'],
           content: '一个基于 Umi 的 React 前端框架',
         },
-
-        // {
-        //   id: nanoid(),
-        //   url: 'http://nodejs.cn/',
-        //   img: 'nodejs.cn.png',
-        //   title: 'Node.js',
-        //   tags: ['nodejs', 'js'],
-        //   content: 'Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行时',
-        // },
+        {
+          id: nanoid(),
+          url: 'https://nodejs.org/en',
+          img: 'nodejs.cn.png',
+          title: 'Node.js',
+          tags: ['nodejs', 'js'],
+          content: 'Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行时',
+        },
       ],
     },
     // 打包构建工具
