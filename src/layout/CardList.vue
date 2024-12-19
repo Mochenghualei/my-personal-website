@@ -60,7 +60,7 @@ function onCardMouseLeave(item: anyKey) {
     </div>
     <el-row :gutter="15">
       <el-col v-for="tab in data" :key="tab.id" :span="6">
-        <el-card shadow="hover" :body-style="{ padding: 0 }" @click="handleRedirect(tab.url)" @mouseenter="onCardMouseFocus(tab)" @mouseleave="onCardMouseLeave(tab)">
+        <el-card shadow="hover" :body-style="{ padding: 0 }" @mouseenter="onCardMouseFocus(tab)" @mouseleave="onCardMouseLeave(tab)">
           <div class="card_main">
             <div class="card_l">
               <div class="logo">
@@ -94,9 +94,15 @@ function onCardMouseLeave(item: anyKey) {
                 <DArrowRight />
               </el-icon>
             </div>
-          </div>
-          <div class="switch_box" :class="[tab.showConfig ? 'active' : 'disabled']">
-            switchbox
+            <!-- language choose -->
+            <div class="switch_box" :class="[tab.showConfig ? 'active' : 'disabled']">
+              <div v-if="tab.url.zh" class="zh" @click="handleRedirect(tab.url.zh)">
+                中文
+              </div>
+              <div v-if="tab.url.en" class="en" @click="handleRedirect(tab.url.en)">
+                英文
+              </div>
+            </div>
           </div>
         </el-card>
       </el-col>
@@ -105,16 +111,5 @@ function onCardMouseLeave(item: anyKey) {
 </template>
 
 <style lang="scss" scoped>
-@import '@/styles/homepage.scss';
-
-.switch_box {
-  position: fixed;
-  // position: absolute;
-  // top: 0;
-  // right: 0;
-  height: 100%;
-  width: 50%;
-  z-index: 1;
-  background: #000;
-}
+@use '@/styles/homepage.scss';
 </style>

@@ -10,20 +10,25 @@ const BaseSearchEngine = defineAsyncComponent(() => import('~/components/BaseSea
 const { nav: navEl, navActive, navList, handleClickNav } = useNavFixed() as anyKey
 const { onMounted } = useParallaxRolling()
 
+const baseURL = import.meta.env.VITE_APP_BASE_API
+
 const list = config().menuList
 
-onMounted(async () => getIcon())
-async function getIcon() {
-  for (const key in list) {
-    const item = list[key]
-    item.data.forEach(async (data: anyKey) => {
-      data.iconUrl = ''
-      const baseURL = import.meta.env.VITE_APP_BASE_API
-      const res = await axios.get(`${baseURL}/getIcon?url=${data.url}`)
-      if (res && res.data) {
-        data.iconUrl = data.url + (res.data.data || '')
-      }
-    })
+onMounted(async () => {
+  getIconList()
+})
+
+const request = ref(false)
+async function getIconList() {
+  if (request.value === true) {
+    return false
+  }
+  else {
+    request.value = true
+    const query = 'https://vuejs.org/'
+    const res = await axios.get(`${baseURL}/getWebIcons?url=${query}`)
+    console.log('res :>>> ', res)
+    request.value = false
   }
 }
 

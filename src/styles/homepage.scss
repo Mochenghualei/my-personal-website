@@ -1,4 +1,4 @@
-@use "~/styles/variables.scss" as *;
+@use '~/styles/variables.scss' as *;
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 @import url('https://fonts.googleapis.com/css2?family=ZCOOL+XiaoWei&display=swap');
 
@@ -215,10 +215,6 @@
           color: #606266 !important;
         }
 
-        .card_m .title {
-          color: #de4f51 !important;
-        }
-
         .card_l .logo {
           opacity: 1 !important;
           filter: saturate(150%);
@@ -228,6 +224,43 @@
       .card_main {
         height: 100px;
         display: flex;
+        position: relative;
+        .switch_box {
+          position: absolute;
+          right: 0;
+          height: 100%;
+          width: calc(100% - 90px);
+          z-index: 1;
+          transition: bottom ease 0.2s;
+          bottom: -100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 34px;
+          background: rgba($color: #000000, $alpha: 0.1);
+          backdrop-filter: blur(8px);
+          // box-shadow: 0 4px 6px rgba($color: #000000, $alpha: 0.3);
+          &.active {
+            bottom: 0;
+          }
+          &.disabled {
+            bottom: -100%;
+          }
+          .zh,
+          .en {
+            width: 60px;
+            height: 60px;
+            background: #1f1f1f;
+            border-radius: 50%;
+            line-height: 60px;
+            text-align: center;
+            color: #fff;
+            transition: color ease 0.2s;
+            &:hover {
+              color: #de4f51;
+            }
+          }
+        }
 
         .card_l {
           padding: 0 15px;
