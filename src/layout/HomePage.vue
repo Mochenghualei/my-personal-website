@@ -14,21 +14,21 @@ const baseURL = import.meta.env.VITE_APP_BASE_API
 
 const list = config().menuList
 
-onMounted(async () => {
-  getIconList()
-})
+onMounted(async () => updateItemIcon())
 
-const request = ref(false)
-async function getIconList() {
-  if (request.value === true) {
-    return false
-  }
-  else {
-    request.value = true
-    const query = 'https://vuejs.org/'
-    const res = await axios.get(`${baseURL}/getWebIcons?url=${query}`)
-    console.log('res :>>> ', res)
-    request.value = false
+async function getItemIcon(id: string, query: string) {
+  const res = await axios.get(`${baseURL}/getWebIcons?id=${id}&url=${query}`)
+  return res?.data?.data || ''
+}
+
+function updateItemIcon() {
+  for (const key in list) {
+    const listData = list[key]
+    listData.data.forEach(async (item: anyKey) => {
+      const url = item.url.en || item.url.zh
+      const res = await getItemIcon(item.id, url)
+      item.iconUrl = res
+    })
   }
 }
 

@@ -37,12 +37,12 @@ function handleRedirect(url: string) {
 }
 
 // 图片加载失败的默认行为
-function imgerror(event: anyKey) {
-  const img = event.srcElement
-  img.src = new URL('../../public/error.gif', import.meta.url).href
-  img.onerror = null
-  img.classList.add('err')
-}
+// function imgerror(event: anyKey) {
+//   const img = event.srcElement
+//   img.src = new URL('../../public/error.gif', import.meta.url).href
+//   img.onerror = null
+//   img.classList.add('err')
+// }
 
 function onCardMouseFocus(item: anyKey) {
   item.showConfig = true
@@ -63,8 +63,12 @@ function onCardMouseLeave(item: anyKey) {
         <el-card shadow="hover" :body-style="{ padding: 0 }" @mouseenter="onCardMouseFocus(tab)" @mouseleave="onCardMouseLeave(tab)">
           <div class="card_main">
             <div class="card_l">
-              <div class="logo">
-                <img :src="tab.iconUrl" :onerror="(e:anyKey) => imgerror(e)">
+              <div v-if="tab.iconUrl" class="logo">
+                <!-- <img :src="tab.iconUrl" :onerror="(e:anyKey) => imgerror(e)"> -->
+                <img :src="tab.iconUrl">
+              </div>
+              <div v-else class="logo err">
+                <img src="../../public/error.gif">
               </div>
             </div>
             <div class="card_m">

@@ -60,14 +60,13 @@ export default () => {
       lrc: 'https://www.huberyyang.site/lrcs/%E5%91%A8%E6%9D%B0%E4%BC%A6-%E7%B2%89%E8%89%B2%E6%B5%B7%E6%B4%8B.lrc',
     },
   ]
-
   const menuList: MenuList = {
     // 框架与生态
     list1: {
       title: '框架与生态',
       data: [
         {
-          id: nanoid(),
+          id: '001',
           url: {
             en: 'https://vuejs.org/',
             zh: 'https://cn.vuejs.org/',
@@ -78,7 +77,7 @@ export default () => {
           showConfig: false,
         },
         {
-          id: nanoid(),
+          id: '002',
           url: {
             zh: 'https://vuex.vuejs.org/zh/',
             en: 'https://vuex.vuejs.org/',
@@ -89,7 +88,7 @@ export default () => {
           showConfig: false,
         },
         {
-          id: nanoid(),
+          id: '003',
           url: {
             zh: 'https://router.vuejs.org/zh/',
             en: 'https://router.vuejs.org/',
@@ -100,7 +99,7 @@ export default () => {
           showConfig: false,
         },
         {
-          id: nanoid(),
+          id: '004',
           url: {
             zh: 'https://pinia.vuejs.org/zh/',
             en: 'https://pinia.vuejs.org/',
@@ -111,7 +110,7 @@ export default () => {
           showConfig: false,
         },
         {
-          id: nanoid(),
+          id: '005',
           url: {
             zh: 'https://zh-hans.react.dev/',
             en: 'https://react.dev/',
@@ -122,7 +121,7 @@ export default () => {
           showConfig: false,
         },
         {
-          id: nanoid(),
+          id: '006',
           url: {
             zh: 'https://reactrouter.cn/',
             en: 'https://reactrouter.com/',
@@ -133,7 +132,7 @@ export default () => {
           showConfig: false,
         },
         {
-          id: nanoid(),
+          id: '007',
           url: {
             zh: 'https://cn.redux.js.org/',
             en: 'https://redux.js.org/',
@@ -144,7 +143,7 @@ export default () => {
           showConfig: false,
         },
         {
-          id: nanoid(),
+          id: '008',
           url: {
             zh: 'https://reactnative.cn/',
             en: 'https://reactnative.dev/',
@@ -155,7 +154,7 @@ export default () => {
           showConfig: false,
         },
         {
-          id: nanoid(),
+          id: '009',
           url: {
             zh: 'https://nuxt.com.cn/',
             en: 'https://nuxt.com/',
@@ -166,7 +165,7 @@ export default () => {
           showConfig: false,
         },
         {
-          id: nanoid(),
+          id: '010',
           url: {
             zh: 'https://www.nextjs.cn/',
             en: 'https://nextjs.org/',
@@ -177,7 +176,7 @@ export default () => {
           showConfig: false,
         },
         {
-          id: nanoid(),
+          id: '011',
           url: {
             zh: 'https://www.solidjs.com/',
             en: 'https://www.solidjs.com/',
@@ -188,7 +187,7 @@ export default () => {
           showConfig: false,
         },
         {
-          id: nanoid(),
+          id: '012',
           url: {
             zh: 'https://www.svelte.cn/',
             en: 'https://svelte.dev/',
@@ -199,7 +198,7 @@ export default () => {
           showConfig: false,
         },
         {
-          id: nanoid(),
+          id: '013',
           url: {
             zh: 'https://flutter.cn/',
             en: 'https://flutter.dev/',
@@ -210,7 +209,7 @@ export default () => {
           showConfig: false,
         },
         {
-          id: nanoid(),
+          id: '014',
           url: {
             en: 'https://angular.dev/',
             zh: 'https://angular.cn/',
@@ -221,7 +220,7 @@ export default () => {
           showConfig: false,
         },
         {
-          id: nanoid(),
+          id: '015',
           url: {
             en: 'https://preactjs.com/',
             zh: 'https://preactjs.com/',
@@ -232,7 +231,7 @@ export default () => {
           showConfig: false,
         },
         {
-          id: nanoid(),
+          id: '016',
           url: {
             zh: 'https://uniapp.dcloud.net.cn/',
             en: 'https://en.uniapp.dcloud.io/',
@@ -244,7 +243,7 @@ export default () => {
           showConfig: false,
         },
         {
-          id: nanoid(),
+          id: '017',
           url: {
             zh: 'https://ionic.nodejs.cn/',
             en: 'https://ionicframework.com/',
@@ -255,7 +254,7 @@ export default () => {
           showConfig: false,
         },
         {
-          id: nanoid(),
+          id: '018',
           url: {
             zh: 'https://nodejs.org/zh-cn',
             en: 'https://nodejs.org/en',
@@ -266,7 +265,7 @@ export default () => {
           showConfig: false,
         },
         {
-          id: nanoid(),
+          id: '019',
           url: {
             zh: 'https://qwikcn.netlify.app/docs/overview/',
             en: 'https://qwik.dev/',
@@ -279,75 +278,110 @@ export default () => {
       ],
     },
     // 打包构建工具
-    // list2: {
-    //   title: '打包/构建工具',
-    //   data: [
-    //     {
-    //       id: nanoid(),
-    //       url: 'https://www.webpackjs.com/',
-    //       img: 'www.webpackjs.com.png',
-    //       title: 'Webpack',
-    //       tags: ['Webpack', '打包工具'],
-    //       content: '构建你的 assets',
-    //     },
-    //     {
-    //       id: nanoid(),
-    //       url: 'https://cn.vitejs.dev/',
-    //       img: 'cn.vitejs.dev.png',
-    //       title: 'Vite',
-    //       tags: ['vite', '工具链'],
-    //       content: '下一代的前端工具链，为开发提供极速响应',
-    //     },
-    //     {
-    //       id: nanoid(),
-    //       url: 'https://www.gruntjs.net/',
-    //       img: 'www.gruntjs.net.png',
-    //       title: 'Grunt.js',
-    //       tags: ['gruntjs', '构建工具'],
-    //       content: 'JavaScript 世界的构建工具',
-    //     },
-    //     {
-    //       id: nanoid(),
-    //       url: 'https://www.gulpjs.com.cn/',
-    //       img: 'www.gulpjs.com.cn.png',
-    //       title: 'Gulp.js',
-    //       tags: ['gulpjs', '构建工具'],
-    //       content: '用自动化构建工具增强你的工作流程！',
-    //     },
-    //     {
-    //       id: nanoid(),
-    //       url: 'https://www.rollupjs.com/',
-    //       img: 'www.rollupjs.com.png',
-    //       title: 'Rollup',
-    //       tags: ['rollupjs', '打包工具'],
-    //       content: 'Rollup 是一个 JavaScript 模块打包工具，可以将多个小的代码片段编译为完整的库和应用',
-    //     },
-    //     {
-    //       id: nanoid(),
-    //       url: 'https://www.babeljs.cn/',
-    //       img: 'www.babeljs.cn.png',
-    //       title: 'Babel',
-    //       tags: ['babeljs', '编译器'],
-    //       content: 'Babel 是一个 JavaScript 编译器',
-    //     },
-    //     {
-    //       id: nanoid(),
-    //       url: 'https://www.parceljs.cn/',
-    //       img: 'www.parceljs.cn.png',
-    //       title: 'Parcel',
-    //       tags: ['parceljs', '打包工具'],
-    //       content: '极速零配置Web应用打包工具',
-    //     },
-    //     {
-    //       id: nanoid(),
-    //       url: 'https://www.romejs.cn/',
-    //       img: 'www.romejs.cn.png',
-    //       title: 'Rome.js',
-    //       tags: ['romejs', '工具链'],
-    //       content: 'Rome 是一个完整的 JavaScript 工具链，集代码检测、打包、编译、测试等功能于一身',
-    //     },
-    //   ],
-    // },
+    list2: {
+      title: '打包/构建工具',
+      data: [
+        {
+          id: '020',
+          url: {
+            en: 'https://webpack.js.org/',
+            zh: 'https://www.webpackjs.com/concepts/',
+          },
+          title: 'Webpack',
+          tags: ['Webpack', '打包工具'],
+          content: '构建你的 assets',
+          showConfig: false,
+        },
+        {
+          id: '021',
+          url: {
+            en: 'https://vite.dev/',
+            zh: 'https://cn.vitejs.dev/',
+          },
+          title: 'Vite',
+          tags: ['vite', '工具链'],
+          content: '下一代的前端工具链，为开发提供极速响应',
+          showConfig: false,
+        },
+        {
+          id: '022',
+          url: {
+            en: 'https://esbuild.github.io/',
+            zh: 'https://esbuild.bootcss.com/getting-started/',
+          },
+          title: 'esbuild',
+          tags: ['esbuild', '打包工具'],
+          content: '速度极快的网络捆绑器',
+          showConfig: false,
+        },
+        {
+          id: '023',
+          url: {
+            en: 'https://parceljs.org/',
+            zh: 'https://zh.parceljs.org/',
+          },
+          title: 'Parcel',
+          tags: ['parceljs', '打包工具'],
+          content: '极速零配置Web应用打包工具',
+          showConfig: false,
+        },
+        {
+          id: '024',
+          url: {
+            en: 'https://rollupjs.org/',
+            zh: 'https://www.rollupjs.com/',
+          },
+          title: 'Rollup',
+          tags: ['rollupjs', '打包工具'],
+          content: 'Rollup 是一个 JavaScript 模块打包工具，可以将多个小的代码片段编译为完整的库和应用',
+          showConfig: false,
+        },
+        {
+          id: '025',
+          url: {
+            en: 'https://babeljs.io/',
+            zh: 'https://www.babeljs.cn/',
+          },
+          title: 'Babel',
+          tags: ['babeljs', '编译器'],
+          content: 'Babel 是一个 JavaScript 编译器',
+          showConfig: false,
+        },
+        {
+          id: '026',
+          url: {
+            en: 'https://gruntjs.com/',
+            zh: 'https://www.gruntjs.net/',
+          },
+          title: 'Grunt.js',
+          tags: ['gruntjs', '构建工具'],
+          content: 'JavaScript 世界的构建工具',
+          showConfig: false,
+        },
+        {
+          id: '027',
+          url: {
+            en: 'https://gulpjs.com/',
+            zh: 'https://www.gulpjs.com.cn/',
+          },
+          title: 'Gulp.js',
+          tags: ['gulpjs', '构建工具'],
+          content: '用自动化构建工具增强你的工作流程！',
+          showConfig: false,
+        },
+        {
+          id: '029',
+          url: {
+            en: 'https://www.biomejs.cn/en/',
+            zh: 'https://www.biomejs.cn/',
+          },
+          title: 'Rome.js',
+          tags: ['romejs', '工具链'],
+          content: 'Rome 是一个完整的 JavaScript 工具链，集代码检测、打包、编译、测试等功能于一身',
+          showConfig: false,
+        },
+      ],
+    },
     // css/组件库
     // list3: {
     //   title: 'css框架/组件库',
