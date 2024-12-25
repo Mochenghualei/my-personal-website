@@ -10,7 +10,7 @@ const BaseSearchEngine = defineAsyncComponent(() => import('~/components/BaseSea
 const { nav: navEl, navActive, navList, handleClickNav } = useNavFixed() as anyKey
 const { onMounted } = useParallaxRolling()
 
-const baseURL = import.meta.env.VITE_APP_BASE_API
+const baseURL = import.meta.env.DEV ? import.meta.env.VITE_APP_BASE_API : import.meta.env.VITE_APP_REQUEST_API + import.meta.env.VITE_APP_TRUE_API
 
 const list = config().menuList
 
